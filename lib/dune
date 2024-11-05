@@ -7,13 +7,15 @@
  (modules constraintLexer))
 
 (menhir
- (modules constraintParser))
+ (modules constraintParser)
+ (flags --unused-tokens --unused-precedence-levels))
 
 (ocamllex
  (modules miniLexer)) 
 
 (menhir
- (modules miniParser))
+ (modules miniParser)
+ (flags --unused-tokens --unused-precedence-levels))
 
 (env
  (dev
