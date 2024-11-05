@@ -1,7 +1,7 @@
 /**************************************************************************/
 /*  Mini, a type inference engine based on constraint solving.            */
-/*  Copyright (C) 2006. François Pottier, Yann Régis-Gianas               */
-/*  and Didier Rémy.                                                      */
+/*  Copyright (C) 2006. Franï¿½ois Pottier, Yann Rï¿½gis-Gianas               */
+/*  and Didier Rï¿½my.                                                      */
 /*                                                                        */
 /*  This program is free software; you can redistribute it and/or modify  */
 /*  it under the terms of the GNU General Public License as published by  */
@@ -118,7 +118,6 @@ let mkref pos e =
 %token <Positions.position> COMMA
 %token <Positions.position> EOF
 %token <Positions.position> BANG
-%token <Positions.position> BAR
 %token <Positions.position> ANDC
 %token <Positions.position> COLON
 %token <Positions.position> COERCE
