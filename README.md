@@ -1,26 +1,28 @@
 # ATTAPL Type Inference Engine
 
 This repo contains François Pottier's [prototype implementation of a type 
-inference engine](http://cristal.inria.fr/attapl/), which accompanies the chapter "The Essence of ML Type Inference" in [ATTAPL](https://www.cis.upenn.edu/~bcpierce/attapl/).
+inference engine](http://cristal.inria.fr/attapl/), which accompanies Pottier & Rémy's chapter "The Essence of ML Type Inference" in [ATTAPL](https://www.cis.upenn.edu/~bcpierce/attapl/).
 
 The original authors of the code are François Pottier, Yann Régis-Gianas and Didier Rémy.    
-(I have lightly modified the code so that it works with Dune & the latest version of OCaml.)
+(I have lightly modified the code so that it works with Dune & the latest version of the OCaml standard library.)
+
+[**Docs**](https://yrg.gitlab.io/homepage/static/public/mini/) can be found on Yann Régis-Gianas's webpage.
+
 
 ## Compilation instructions
 - To compile, run `dune build`
 - To run the executable, run `dune exec -- main`
 
-
 ## Usage
 
-A basic usage of mini is to provide a source file as input. Let's
-`foo.ml` be this file:
+A basic usage of mini is to provide a source file as input. Suppose
+`foo.ml` contains the following:
 
 ```ocaml
 let id x = x
 ``` 
 
-Then, `dune exec -- main foo.ml` returns 
+Then, if we run `dune exec -- main foo.ml`, the following inferred type is displayed in `stdout`:  
 ```ocaml
 val id: forall a. a -> a
 ```
@@ -31,23 +33,24 @@ valid Mini programs.
 
 ## Options
 
-By default, [mini] processes the following tasks:
+By default, the executable (triggered by `dune exec -- main`) processes the following tasks:
 
-- parse-program, parse the input file as a Mini program
-- generate-constraint, generate the typing constraint of this program
--  solve-constraint, solve this constraint
-- print-env, print the types of the toplevel definitions
+- `parse-program`: parses the input file as a Mini program
+- `generate-constraint`: generates the typing constraint of this program
+- `solve-constraint`: solves a constraint
+- `print-env`: print the types of the toplevel definitions
 
 
 These tasks are optional:
 
--  print-program, pretty-print the parsed program
--  parse-constraint, parse the input file as a typing constraint not as 
+-  `print-program`: pretty-prints the parsed program
+-  `parse-constraint`: parses the input file as a typing constraint not as 
    a Mini program
--  print-constraint, print the typing constraint
+-  `print-constraint`: prints a typing constraint
 
-The options of [dune exec -- main] enable the use of these optional tasks:
+The other command-line flags enable the use of the following optional tasks:
 
+```bash
 usage: dune exec -- main [options] filename
   --start taskname             Task to begin with
   --end taskname               Task to end with
@@ -62,4 +65,4 @@ usage: dune exec -- main [options] filename
   --trace-parse-constraint     Trace parse-constraint
   -help                        Display this list of options
   --help                       Display this list of options
-
+```
