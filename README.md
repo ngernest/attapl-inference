@@ -1,10 +1,10 @@
 # ATTAPL Type Inference Engine
 
 This repo contains François Pottier's [prototype implementation of a type 
-inference engine](http://cristal.inria.fr/attapl/), which accompanies Pottier & Rémy's chapter "The Essence of ML Type Inference" in [ATTAPL](https://www.cis.upenn.edu/~bcpierce/attapl/).
+inference engine](http://cristal.inria.fr/attapl/), updated to work with Dune and the latest version of the OCaml standard library.
 
+The original implementation accompanied Pottier & Rémy's chapter [*The Essence of ML Type Inference*](https://gallium.inria.fr/~fpottier/publis/emlti-final.pdf) in [ATTAPL](https://www.cis.upenn.edu/.~bcpierce/attapl/).
 The original authors of the code are François Pottier, Yann Régis-Gianas and Didier Rémy.    
-(I have lightly modified the code so that it works with Dune & the latest version of the OCaml standard library.)
 
 [**Docs**](https://yrg.gitlab.io/homepage/static/public/mini/) can be found on Yann Régis-Gianas's webpage.
 
@@ -13,16 +13,16 @@ The original authors of the code are François Pottier, Yann Régis-Gianas and D
 - To compile, run `dune build`
 - To run the executable, run `dune exec -- main`
 
-## Usage
+Note: the build system from the original artifact have been preserved in the repo (see the [`./configure`](./configure) script & the generated [`Makefile`](./Makefile))
 
-A basic usage of mini is to provide a source file as input. Suppose
-`foo.ml` contains the following:
+## Usage
+Suppose the file `foo.ml` contains the following:
 
 ```ocaml
 let id x = x
 ``` 
 
-Then, if we run `dune exec -- main foo.ml`, the following inferred type is displayed in `stdout`:  
+Then, if we run `dune exec -- main foo.ml`, the type inference engine infers a type for `id`, and displays the inferred type in `stdout`:  
 ```ocaml
 val id: forall a. a -> a
 ```
