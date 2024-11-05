@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Mark.html">
+<link rel="next" href="Processing.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Index of module types" rel=Appendix href="index_module_types.html">
+<link title="PrettyPrinter" rel="Chapter" href="PrettyPrinter.html">
+<link title="InfiniteArray" rel="Chapter" href="InfiniteArray.html">
+<link title="Misc" rel="Chapter" href="Misc.html">
+<link title="Env" rel="Chapter" href="Env.html">
+<link title="Positions" rel="Chapter" href="Positions.html">
+<link title="Mark" rel="Chapter" href="Mark.html">
+<link title="UnionFind" rel="Chapter" href="UnionFind.html">
+<link title="Processing" rel="Chapter" href="Processing.html">
+<link title="BasicSetEquations" rel="Chapter" href="BasicSetEquations.html">
+<link title="IntRank" rel="Chapter" href="IntRank.html">
+<link title="CoreAlgebra" rel="Chapter" href="CoreAlgebra.html">
+<link title="Errors" rel="Chapter" href="Errors.html"><title>UnionFind</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="Mark.html" title="Mark">Previous</a>
+&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;<a class="post" href="Processing.html" title="Processing">Next</a>
+</div>
+<h1>Module <a href="type_UnionFind.html">UnionFind</a></h1>
+
+<pre><span id="MODULEUnionFind"><span class="keyword">module</span> UnionFind</span>: <code class="code"><span class="keyword">sig</span></code> <a href="UnionFind.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><div class="info module top">
+<div class="info-desc">
+<p>This module implements a simple and efficient union/find algorithm.
+    See Robert E. Tarjan, ``Efficiency of a Good But Not Linear Set
+    Union Algorithm'', JACM 22(2), 1975.</p>
+</div>
+</div>
+<hr width="100%">
+
+<pre><span id="TYPEpoint"><span class="keyword">type</span> <code class="type">'a</code> point</span> </pre>
+<div class="info ">
+<div class="info-desc">
+<p>The abstraction defined by this module is a set of points,
+    partitioned into equivalence classes. With each equivalence class,
+    a piece of information, of abstract type <code class="code"><span class="keywordsign">'</span>a</code>, is associated; we
+    call it a descriptor.</p>
+</div>
+</div>
+
+
+<pre><span id="VALfresh"><span class="keyword">val</span> fresh</span> : <code class="type">'a -&gt; 'a <a href="UnionFind.html#TYPEpoint">point</a></code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">fresh&nbsp;desc</code> creates a fresh point and returns it. It forms an
+    equivalence class of its own, whose descriptor is <code class="code">desc</code>.</p>
+</div>
+</div>
+
+<pre><span id="VALfind"><span class="keyword">val</span> find</span> : <code class="type">'a <a href="UnionFind.html#TYPEpoint">point</a> -&gt; 'a</code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">find&nbsp;point</code> returns the descriptor associated with <code class="code">point</code>'s
+    equivalence class.</p>
+</div>
+</div>
+
+<pre><span id="VALunion"><span class="keyword">val</span> union</span> : <code class="type">'a <a href="UnionFind.html#TYPEpoint">point</a> -&gt; 'a <a href="UnionFind.html#TYPEpoint">point</a> -&gt; unit</code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">union&nbsp;point1&nbsp;point2</code> merges the equivalence classes associated
+    with <code class="code">point1</code> and <code class="code">point2</code> (which must be distinct) into a single
+    class whose descriptor is that originally associated with <code class="code">point2</code>.</p>
+</div>
+</div>
+
+<pre><span id="VALequivalent"><span class="keyword">val</span> equivalent</span> : <code class="type">'a <a href="UnionFind.html#TYPEpoint">point</a> -&gt; 'a <a href="UnionFind.html#TYPEpoint">point</a> -&gt; bool</code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">equivalent&nbsp;point1&nbsp;point2</code> tells whether <code class="code">point1</code> and <code class="code">point2</code>
+    belong to the same equivalence class.</p>
+</div>
+</div>
+
+<pre><span id="VALredundant"><span class="keyword">val</span> redundant</span> : <code class="type">'a <a href="UnionFind.html#TYPEpoint">point</a> -&gt; bool</code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">redundant</code> maps all members of an equivalence class, but one, to
+    <code class="code"><span class="keyword">true</span></code>.</p>
+</div>
+</div>
+
+<pre><span id="VALchange"><span class="keyword">val</span> change</span> : <code class="type">'a <a href="UnionFind.html#TYPEpoint">point</a> -&gt; 'a -&gt; 'a</code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">change&nbsp;p&nbsp;d</code> updates the descriptor of <code class="code">p</code> to <code class="code">d</code>.</p>
+</div>
+</div>
+</body></html>

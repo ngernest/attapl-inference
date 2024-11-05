@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="Start" href="index.html">
+<link rel="previous" href="CoreAlgebra.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Index of module types" rel=Appendix href="index_module_types.html">
+<link title="PrettyPrinter" rel="Chapter" href="PrettyPrinter.html">
+<link title="InfiniteArray" rel="Chapter" href="InfiniteArray.html">
+<link title="Misc" rel="Chapter" href="Misc.html">
+<link title="Env" rel="Chapter" href="Env.html">
+<link title="Positions" rel="Chapter" href="Positions.html">
+<link title="Mark" rel="Chapter" href="Mark.html">
+<link title="UnionFind" rel="Chapter" href="UnionFind.html">
+<link title="Processing" rel="Chapter" href="Processing.html">
+<link title="BasicSetEquations" rel="Chapter" href="BasicSetEquations.html">
+<link title="IntRank" rel="Chapter" href="IntRank.html">
+<link title="CoreAlgebra" rel="Chapter" href="CoreAlgebra.html">
+<link title="Errors" rel="Chapter" href="Errors.html"><title>Errors</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="CoreAlgebra.html" title="CoreAlgebra">Previous</a>
+&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;</div>
+<h1>Module <a href="type_Errors.html">Errors</a></h1>
+
+<pre><span id="MODULEErrors"><span class="keyword">module</span> Errors</span>: <code class="code"><span class="keyword">sig</span></code> <a href="Errors.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><div class="info module top">
+<div class="info-desc">
+<p><code class="code">handle&nbsp;f</code> runs <code class="code">f</code> and exits with exit status 0. 
+    If <code class="code">f</code> raises an error exception, a error message is printed 
+    and we quit the program with exit status 1.</p>
+</div>
+</div>
+<hr width="100%">
+
+<pre><span id="VALhandle"><span class="keyword">val</span> handle</span> : <code class="type">?dont_exit:bool -&gt; (unit -&gt; unit) -&gt; unit</code></pre>
+<pre><span id="VALset_error_channel"><span class="keyword">val</span> set_error_channel</span> : <code class="type">Stdlib.out_channel -&gt; unit</code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">set_error_channel&nbsp;c</code> defines the channel into which we print
+    the error messages.</p>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,21 @@
+(library
+ (name mini)
+ (public_name mini)
+ (libraries str))
+
+(ocamllex
+ (modules constraintLexer))
+
+(menhir
+ (modules constraintParser))
+
+(ocamllex
+ (modules miniLexer)) 
+
+(menhir
+ (modules miniParser))
+
+(env
+ (dev
+  (flags
+   (:standard -g -w "-26-27-32-33-34-35-37-38-39-50-69"))))

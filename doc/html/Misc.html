@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="Start" href="index.html">
+<link rel="previous" href="InfiniteArray.html">
+<link rel="next" href="Env.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Index of module types" rel=Appendix href="index_module_types.html">
+<link title="PrettyPrinter" rel="Chapter" href="PrettyPrinter.html">
+<link title="InfiniteArray" rel="Chapter" href="InfiniteArray.html">
+<link title="Misc" rel="Chapter" href="Misc.html">
+<link title="Env" rel="Chapter" href="Env.html">
+<link title="Positions" rel="Chapter" href="Positions.html">
+<link title="Mark" rel="Chapter" href="Mark.html">
+<link title="UnionFind" rel="Chapter" href="UnionFind.html">
+<link title="Processing" rel="Chapter" href="Processing.html">
+<link title="BasicSetEquations" rel="Chapter" href="BasicSetEquations.html">
+<link title="IntRank" rel="Chapter" href="IntRank.html">
+<link title="CoreAlgebra" rel="Chapter" href="CoreAlgebra.html">
+<link title="Errors" rel="Chapter" href="Errors.html"><title>Misc</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="InfiniteArray.html" title="InfiniteArray">Previous</a>
+&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;<a class="post" href="Env.html" title="Env">Next</a>
+</div>
+<h1>Module <a href="type_Misc.html">Misc</a></h1>
+
+<pre><span id="MODULEMisc"><span class="keyword">module</span> Misc</span>: <code class="code"><span class="keyword">sig</span></code> <a href="Misc.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><div class="info module top">
+<div class="info-desc">
+<p>This module contains miscellaneous utilities.</p>
+</div>
+</div>
+<hr width="100%">
+
+<pre><span id="VALiter"><span class="keyword">val</span> iter</span> : <code class="type">('a -&gt; 'b) -&gt; 'a list -&gt; unit</code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">iter</code> is similar to <code class="code"><span class="constructor">List</span>.iter</code>, but does not require <code class="code">f</code> to
+    return a result of type <code class="code">unit</code>. Use with caution.</p>
+</div>
+</div>
+
+<pre><span id="VALassocp"><span class="keyword">val</span> assocp</span> : <code class="type">('a -&gt; bool) -&gt; ('a * 'b) list -&gt; 'b</code></pre><div class="info ">
+<div class="info-desc">
+<p>If <code class="code">l</code> is a list of pairs of a key and a datum, and if <code class="code">p</code> is a
+    predicate on keys, then <code class="code">assocp&nbsp;p&nbsp;l</code> returns the datum associated
+    with the first key that satisfies <code class="code">p</code> in <code class="code">l</code>. It raises
+    <code class="code"><span class="constructor">Not_found</span></code> if no such key exists.</p>
+</div>
+</div>
+
+<pre><span id="MODULEStringSet"><span class="keyword">module</span> <a href="Misc.StringSet.html">StringSet</a></span>: <code class="type">Set.S</code><code class="type">  with type elt = string</code></pre><div class="info">
+<p>Sets of strings.</p>
+
+</div>
+
+<pre><span id="MODULEStringMap"><span class="keyword">module</span> <a href="Misc.StringMap.html">StringMap</a></span>: <code class="code"><span class="keyword">sig</span></code> <a href="Misc.StringMap.html">..</a> <code class="code"><span class="keyword">end</span></code><code class="type">  with type key = string</code></pre><div class="info">
+<p>Maps over strings.</p>
+
+</div>
+
+<pre><span id="VALdebug"><span class="keyword">val</span> debug</span> : <code class="type">bool Stdlib.ref</code></pre><div class="info ">
+<div class="info-desc">
+<p>A debugging flag.</p>
+</div>
+</div>
+
+<pre><span id="VALprint_separated_list"><span class="keyword">val</span> print_separated_list</span> : <code class="type">string -&gt; ('a -&gt; string) -&gt; 'a list -&gt; string</code></pre><div class="info ">
+<div class="info-desc">
+<p>Prints a list of elements, with one occurrence of the separator
+    between every two consecutive elements.</p>
+</div>
+</div>
+
+<pre><span id="VALmake_indexes"><span class="keyword">val</span> make_indexes</span> : <code class="type">'a -&gt; ('a -&gt; int) * (int -&gt; 'a) * ('a -&gt; int)</code></pre><div class="info ">
+<div class="info-desc">
+<p>Returns a pair of function <code class="code">import</code> and <code class="code">export</code> to assign
+  a unique integer to a given value.</p>
+</div>
+</div>
+
+<pre><span id="VALlast"><span class="keyword">val</span> last</span> : <code class="type">'a list -&gt; 'a</code></pre><div class="info ">
+<div class="info-desc">
+<p>Returns the last element of a list. Linear complexity.</p>
+</div>
+</div>
+</body></html>

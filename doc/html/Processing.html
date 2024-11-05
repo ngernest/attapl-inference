@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="Start" href="index.html">
+<link rel="previous" href="UnionFind.html">
+<link rel="next" href="BasicSetEquations.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Index of module types" rel=Appendix href="index_module_types.html">
+<link title="PrettyPrinter" rel="Chapter" href="PrettyPrinter.html">
+<link title="InfiniteArray" rel="Chapter" href="InfiniteArray.html">
+<link title="Misc" rel="Chapter" href="Misc.html">
+<link title="Env" rel="Chapter" href="Env.html">
+<link title="Positions" rel="Chapter" href="Positions.html">
+<link title="Mark" rel="Chapter" href="Mark.html">
+<link title="UnionFind" rel="Chapter" href="UnionFind.html">
+<link title="Processing" rel="Chapter" href="Processing.html">
+<link title="BasicSetEquations" rel="Chapter" href="BasicSetEquations.html">
+<link title="IntRank" rel="Chapter" href="IntRank.html">
+<link title="CoreAlgebra" rel="Chapter" href="CoreAlgebra.html">
+<link title="Errors" rel="Chapter" href="Errors.html"><link title="Tasks" rel="Section" href="#2_Tasks">
+<link title="Processing" rel="Section" href="#2_Processing">
+<title>Processing</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="UnionFind.html" title="UnionFind">Previous</a>
+&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;<a class="post" href="BasicSetEquations.html" title="BasicSetEquations">Next</a>
+</div>
+<h1>Module <a href="type_Processing.html">Processing</a></h1>
+
+<pre><span id="MODULEProcessing"><span class="keyword">module</span> Processing</span>: <code class="code"><span class="keyword">sig</span></code> <a href="Processing.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><div class="info module top">
+<div class="info-desc">
+<p>A simple task manager.
+    It enables the registration of the options and the control
+    of what has to be done by the program.</p>
+</div>
+</div>
+<hr width="100%">
+<h3 id="2_Tasks">Tasks</h3>
+<pre><span id="TYPEtask_name"><span class="keyword">type</span> <code class="type"></code>task_name</span> = <code class="type">string</code> </pre>
+
+
+<pre><span id="TYPEprocess_type"><span class="keyword">type</span> <code class="type"></code>process_type</span> = <code class="type"><a href="Processing.html#TYPEtask_name">task_name</a></code> </pre>
+
+
+<pre><span id="TYPEprocess_types"><span class="keyword">type</span> <code class="type"></code>process_types</span> = <code class="type"><a href="Processing.html#TYPEprocess_type">process_type</a> list list</code> </pre>
+
+
+<pre><span id="TYPEprocess_data"><span class="keyword">type</span> <code class="type"></code>process_data</span> </pre>
+
+
+<pre><span id="TYPEprocess_datas"><span class="keyword">type</span> <code class="type"></code>process_datas</span> </pre>
+
+
+<pre><code><span id="TYPEprocess"><span class="keyword">type</span> <code class="type"></code>process</span> = {</code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTprocess.input_type">input_type</span>&nbsp;: <code class="type"><a href="Processing.html#TYPEprocess_type">process_type</a> list list</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTprocess.output_type">output_type</span>&nbsp;: <code class="type"><a href="Processing.html#TYPEprocess_type">process_type</a></code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTprocess.code">code</span>&nbsp;: <code class="type"><a href="Processing.html#TYPEprocess_types">process_types</a> * <a href="Processing.html#TYPEprocess_datas">process_datas</a> -&gt;<br>       <a href="Processing.html#TYPEprocess_type">process_type</a> * <a href="Processing.html#TYPEprocess_data">process_data</a></code>;</code></td>
+
+</tr></table>
+<code>}</code>
+
+
+
+<pre><span id="TYPEtask"><span class="keyword">type</span> <code class="type"></code>task</span> </pre>
+
+
+<pre><span id="TYPEoptions"><span class="keyword">type</span> <code class="type"></code>options</span> = <code class="type">(Stdlib.Arg.key * Stdlib.Arg.spec * Stdlib.Arg.doc) list *<br>       Stdlib.Arg.anon_fun</code> </pre>
+
+
+<pre><span id="VALregister"><span class="keyword">val</span> register</span> : <code class="type"><a href="Processing.html#TYPEtask_name">task_name</a> -&gt;<br>       <a href="Processing.html#TYPEoptions">options</a> -&gt;<br>       <a href="Processing.html#TYPEtask_name">task_name</a> list list -&gt; ('a -&gt; 'b) -&gt; (unit -&gt; bool) -&gt; unit</code></pre>
+<pre><span id="VALis_task_traced"><span class="keyword">val</span> is_task_traced</span> : <code class="type"><a href="Processing.html#TYPEtask_name">task_name</a> -&gt; bool</code></pre>
+<pre><span id="VALget_registered_tasks"><span class="keyword">val</span> get_registered_tasks</span> : <code class="type">unit -&gt; <a href="Processing.html#TYPEtask_name">task_name</a> list</code></pre><h3 id="2_Processing">Processing</h3>
+<pre><span id="VALexecute"><span class="keyword">val</span> execute</span> : <code class="type">default_start:<a href="Processing.html#TYPEtask_name">task_name</a> -&gt;<br>       default_end:<a href="Processing.html#TYPEtask_name">task_name</a> -&gt; usage:string -&gt; unit</code></pre>
+<pre><span id="VALdebug"><span class="keyword">val</span> debug</span> : <code class="type">string -&gt; unit</code></pre></body></html>

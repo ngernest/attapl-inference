@@ -1,0 +1,193 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="Start" href="index.html">
+<link rel="previous" href="IntRank.html">
+<link rel="next" href="Errors.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Index of module types" rel=Appendix href="index_module_types.html">
+<link title="PrettyPrinter" rel="Chapter" href="PrettyPrinter.html">
+<link title="InfiniteArray" rel="Chapter" href="InfiniteArray.html">
+<link title="Misc" rel="Chapter" href="Misc.html">
+<link title="Env" rel="Chapter" href="Env.html">
+<link title="Positions" rel="Chapter" href="Positions.html">
+<link title="Mark" rel="Chapter" href="Mark.html">
+<link title="UnionFind" rel="Chapter" href="UnionFind.html">
+<link title="Processing" rel="Chapter" href="Processing.html">
+<link title="BasicSetEquations" rel="Chapter" href="BasicSetEquations.html">
+<link title="IntRank" rel="Chapter" href="IntRank.html">
+<link title="CoreAlgebra" rel="Chapter" href="CoreAlgebra.html">
+<link title="Errors" rel="Chapter" href="Errors.html"><link title="Type as tree" rel="Section" href="#3_Typeastree">
+<link title="Usual higher order functions" rel="Section" href="#3_Usualhigherorderfunctions">
+<link title="Type manipulation" rel="Section" href="#3_Typemanipulation">
+<title>CoreAlgebra</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="IntRank.html" title="IntRank">Previous</a>
+&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;<a class="post" href="Errors.html" title="Errors">Next</a>
+</div>
+<h1>Module <a href="type_CoreAlgebra.html">CoreAlgebra</a></h1>
+
+<pre><span id="MODULECoreAlgebra"><span class="keyword">module</span> CoreAlgebra</span>: <code class="code"><span class="keyword">sig</span></code> <a href="CoreAlgebra.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><div class="info module top">
+<div class="info-desc">
+<p>This module implements a core algebra of first order terms.</p>
+
+<p>The type core algebra contains all the first order terms built using
+    the following four symbols:</p>
+
+<p><code class="code"><span class="constructor">RowCons</span></code> is the row constructor which appends a label to a row. 
+    <code class="code"><span class="constructor">RowUniform</span></code> denotes the row which maps every label to a particular term. 
+    <code class="code"><span class="constructor">App</span></code> is the application of a type to another type. 
+    <code class="code"><span class="constructor">Var</span></code> is a type variable.</p>
+
+<p>This definition is later augmented to
+    be usable in a real programming language in <code class="code"><span class="constructor">MiniAlgebra</span></code>.</p>
+</div>
+</div>
+<hr width="100%">
+
+<pre><code><span id="TYPElname"><span class="keyword">type</span> <code class="type"></code>lname</span> = </code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTlname.LName"><span class="constructor">LName</span></span> <span class="keyword">of</span> <code class="type">string</code></code></td>
+
+</tr></table>
+
+<div class="info ">
+<div class="info-desc">
+<p><code class="code">lname</code> is the type of label.</p>
+</div>
+</div>
+
+
+<pre><span id="MODULERowLabel"><span class="keyword">module</span> <a href="CoreAlgebra.RowLabel.html">RowLabel</a></span>: <code class="code"><span class="keyword">sig</span></code> <a href="CoreAlgebra.RowLabel.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><div class="info">
+<p>The universe of row labels.</p>
+
+</div>
+<h4 id="3_Typeastree">Type as tree</h4>
+<pre><code><span id="TYPEterm"><span class="keyword">type</span> <code class="type">'a</code> term</span> = </code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTterm.RowCons"><span class="constructor">RowCons</span></span> <span class="keyword">of</span> <code class="type"><a href="CoreAlgebra.RowLabel.html#TYPEt">RowLabel.t</a> * 'a * 'a</code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTterm.RowUniform"><span class="constructor">RowUniform</span></span> <span class="keyword">of</span> <code class="type">'a</code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTterm.App"><span class="constructor">App</span></span> <span class="keyword">of</span> <code class="type">'a * 'a</code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTterm.Var"><span class="constructor">Var</span></span> <span class="keyword">of</span> <code class="type">'a</code></code></td>
+
+</tr></table>
+
+<div class="info ">
+<div class="info-desc">
+<p>Terms whose parameters are of type <code class="code"><span class="keywordsign">'</span>a</code>. This data structure 
+    represents a tree whose depth is exactly equal to 1.</p>
+</div>
+</div>
+
+
+<pre><code><span id="TYPEarterm"><span class="keyword">type</span> <code class="type">'a</code> arterm</span> = </code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTarterm.TVariable"><span class="constructor">TVariable</span></span> <span class="keyword">of</span> <code class="type">'a</code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTarterm.TTerm"><span class="constructor">TTerm</span></span> <span class="keyword">of</span> <code class="type">'a <a href="CoreAlgebra.html#TYPEarterm">arterm</a> <a href="CoreAlgebra.html#TYPEterm">term</a></code></code></td>
+
+</tr></table>
+
+<div class="info ">
+<div class="info-desc">
+<p>Terms whose parameters are either leaves of type <code class="code"><span class="keywordsign">'</span>a</code>, or terms.
+    <code class="code">arterm</code> stands for ``abstract recursive term''.</p>
+</div>
+</div>
+
+<h4 id="3_Usualhigherorderfunctions">Usual higher order functions</h4>
+<pre><span id="VALiter"><span class="keyword">val</span> iter</span> : <code class="type">('a -&gt; unit) -&gt; 'a <a href="CoreAlgebra.html#TYPEterm">term</a> -&gt; unit</code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">iter&nbsp;f&nbsp;term</code> applies <code class="code">f</code> successively to every parameter of
+    the term <code class="code">term</code>.</p>
+</div>
+</div>
+
+<pre><span id="VALmap"><span class="keyword">val</span> map</span> : <code class="type">('a -&gt; 'b) -&gt; 'a <a href="CoreAlgebra.html#TYPEterm">term</a> -&gt; 'b <a href="CoreAlgebra.html#TYPEterm">term</a></code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">map&nbsp;f&nbsp;term</code> returns a term whose head symbol is that of <code class="code">term</code>
+    and whose parameters are the images of <code class="code">term</code>'s parameters
+    through <code class="code">f</code>.</p>
+</div>
+</div>
+
+<pre><span id="VALfold"><span class="keyword">val</span> fold</span> : <code class="type">('a -&gt; 'b -&gt; 'b) -&gt; 'a <a href="CoreAlgebra.html#TYPEterm">term</a> -&gt; 'b -&gt; 'b</code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">fold&nbsp;f&nbsp;term&nbsp;accu</code> folds <code class="code">f</code> over <code class="code">term</code>'s parameters, using
+    <code class="code">accu</code> as initial value.</p>
+</div>
+</div>
+
+<pre><span id="VALfold2"><span class="keyword">val</span> fold2</span> : <code class="type">('a -&gt; 'b -&gt; 'c -&gt; 'c) -&gt;<br>       'a <a href="CoreAlgebra.html#TYPEterm">term</a> -&gt; 'b <a href="CoreAlgebra.html#TYPEterm">term</a> -&gt; 'c -&gt; 'c</code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">fold2&nbsp;f&nbsp;term&nbsp;term'&nbsp;accu</code> folds <code class="code">f</code> over <code class="code">term</code>'s parameters, using
+    <code class="code">accu</code> as initial value.</p>
+</div>
+</div>
+<h4 id="3_Typemanipulation">Type manipulation</h4>
+<pre><span id="VALchange_arterm_vars"><span class="keyword">val</span> change_arterm_vars</span> : <code class="type">('a * 'a) list -&gt; 'a <a href="CoreAlgebra.html#TYPEarterm">arterm</a> -&gt; 'a <a href="CoreAlgebra.html#TYPEarterm">arterm</a></code></pre>
+<pre><span id="VALapp"><span class="keyword">val</span> app</span> : <code class="type">'a <a href="CoreAlgebra.html#TYPEarterm">arterm</a> -&gt; 'a <a href="CoreAlgebra.html#TYPEarterm">arterm</a> list -&gt; 'a <a href="CoreAlgebra.html#TYPEarterm">arterm</a></code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">app&nbsp;t&nbsp;ts</code> built the term corresponding to the <code class="code">(...((t&nbsp;t0)&nbsp;t1)...&nbsp;tn)</code>.</p>
+</div>
+</div>
+
+<pre><span id="VALuniform"><span class="keyword">val</span> uniform</span> : <code class="type">'a <a href="CoreAlgebra.html#TYPEarterm">arterm</a> -&gt; 'a <a href="CoreAlgebra.html#TYPEarterm">arterm</a></code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">uniform&nbsp;t</code> returns the row type that maps any label to <code class="code">t</code>.</p>
+</div>
+</div>
+
+<pre><span id="VALrowcons"><span class="keyword">val</span> rowcons</span> : <code class="type"><a href="CoreAlgebra.html#TYPElname">lname</a> -&gt;<br>       'a <a href="CoreAlgebra.html#TYPEarterm">arterm</a> -&gt; 'a <a href="CoreAlgebra.html#TYPEarterm">arterm</a> -&gt; 'a <a href="CoreAlgebra.html#TYPEarterm">arterm</a></code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">rowcons&nbsp;l&nbsp;t&nbsp;r</code> returns the row type <code class="code">(l:&nbsp;t;&nbsp;r)</code>.</p>
+</div>
+</div>
+
+<pre><span id="VALn_rowcons"><span class="keyword">val</span> n_rowcons</span> : <code class="type">(<a href="CoreAlgebra.html#TYPElname">lname</a> * 'a <a href="CoreAlgebra.html#TYPEarterm">arterm</a>) list -&gt;<br>       'a <a href="CoreAlgebra.html#TYPEarterm">arterm</a> -&gt; 'a <a href="CoreAlgebra.html#TYPEarterm">arterm</a></code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">n_rowcons&nbsp;l&nbsp;ts&nbsp;r</code> returns the row type <code class="code">(l0:&nbsp;t0;&nbsp;...;&nbsp;ln:&nbsp;tn;&nbsp;r)</code>.</p>
+</div>
+</div>
+</body></html>
